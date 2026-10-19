@@ -58,7 +58,7 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Tạo booking thành công (Status 200)\", function () {\r\n pm.response.to.have.status(200);\r\n});\r\n// Kiểm tra tên khách hàng khớp với dữ liệu từ file CSV\r\npm.test(\"Tên khách hàng khớp với dữ liệu đầu vào\", function () {\r\n var jsonData = pm.response.json();\r\n var expectedFirstName = pm.iterationData.get(\"firstname\");\r\n pm.expect(jsonData.booking.firstname).to.eql(\"Nguyen\");\r\n});\r\n// Lưu lại ID\r\nvar jsonData = pm.response.json();\r\npm.environment.set(\"bookingid\", jsonData.bookingid);"
+                  "pm.test(\"Tạo booking thành công (Status 200)\", function () {\r\n pm.response.to.have.status(200);\r\n});\r\n// Kiểm tra tên khách hàng khớp với dữ liệu từ file CSV\r\n   pm.test(\"Tên khách hàng khớp với dữ liệu đã tạo\", function () {\r\n       var jsonData = pm.response.json();\r\n       pm.expect(jsonData.booking.firstname).to.eql(\"Nguyen\");\r\n   });\r\n// Lưu lại ID\r\nvar jsonData = pm.response.json();\r\npm.environment.set(\"bookingid\", jsonData.bookingid);"
                 ]
               }
             }
